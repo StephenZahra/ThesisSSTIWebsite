@@ -12,11 +12,14 @@
     <h4>Stored Posterior Injection</h4>
 
     <body>
-        <form action='/' method='post'>
+        <form action="{{route('storeStoredPos')}}" method='post'>
             @csrf
             <label>Tell us what you think:</label><br>
-            <textarea type='text' name='message'></textarea><br><br>
+            <textarea type='text' name='message' style="resize: both;"></textarea><br><br>
             <input type='submit' value='Submit'>
         </form>
+
+        <br><br>
+        <a class="btn btn-success" href="{{route('comments')}}">See what other people think</a>
     </body>
 </html>

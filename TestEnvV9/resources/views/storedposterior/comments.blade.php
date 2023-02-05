@@ -9,14 +9,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
-    <h4>Reflected Injection</h4>
-    
+    <h4>What people Think</h4>
+
     <body>
-        <form action='/' method='post'>
-            @csrf
-            <label>Name:</label>
-            <input type='text' name='name'><br><br>
-            <input type='submit' value='Submit'>
-        </form>
+        @foreach ($data as $comment)
+            <p>{{$comment->data}}</p>
+        @endforeach
     </body>
 </html>

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+Class CreateStoredPosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('storedpos', function(Blueprint $table){
+        Schema::create('storedpos', function (Blueprint $table) {
             // Primary Key
             $table->bigIncrements('id');
 
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema:drop('storedpos');
+        Schema::dropIfExists('storedpos');
     }
 };

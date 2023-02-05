@@ -10,7 +10,6 @@ class ReflectedController extends Controller
     public function reflect(Request $request){
         if(!empty($request->input("name"))) //check if a name was inputted
         {
-            dd(phpinfo());
             $message = "Hello ". $request->input("name") . " !";
             
             return Blade::render($message);
