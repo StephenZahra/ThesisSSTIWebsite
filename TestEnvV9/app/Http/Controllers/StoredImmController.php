@@ -4,17 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Blade;
+use App\Mail\SSTIMail;
+use Mail;
 
 class StoredImmController extends Controller
 {
     public function storeimm(Request $request){
         if(!empty($request->input("message"))) //check if a message was inputted
         {
-            //$message = "Hello ". $request->input("name") . " !";
-            
-            //return Blade::render($message);
+            $mailData = [
+                'title' => 'SSTI Mail',
+                'body' => $request->input("message")
+            ];
+
+            Mail::to('stephenzahra101@gmail.com')->send(new SSTIMail($mailData));
         }
-        return view("storedimm");
-       
+
+        return view("storedimmediate.storedimm");
     }
 }

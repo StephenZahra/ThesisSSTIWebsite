@@ -34,7 +34,7 @@ Route::match(['get'], 'storedpos', [StoredPosController::class, 'storepos'], fun
 
 // Stored SSTI with Immediate Injection and Rendering Route
 Route::match(['get', 'post'], 'storedimm', [StoredImmController::class, 'storeimm'], function (Request $request) {
-    return back()->with(["name"]);
+    return back()->with(["message"]);
 })->name('storedimm');
 
 
