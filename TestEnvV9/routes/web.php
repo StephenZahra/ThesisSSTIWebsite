@@ -32,6 +32,7 @@ Route::match(['get'], 'storedpos', [StoredPosController::class, 'storepos'], fun
     })->name('comments');
 
 
+
 // Stored SSTI with Immediate Injection and Rendering Route
 Route::match(['get', 'post'], 'storedimm', [StoredImmController::class, 'storeimm'], function (Request $request) {
     return back()->with(["message"]);

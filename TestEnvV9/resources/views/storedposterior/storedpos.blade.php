@@ -10,7 +10,6 @@
     </head>
 
     <h4>Stored Posterior Injection</h4>
-
     <body>
         <form action="{{route('storeStoredPos')}}" method='post'>
             @csrf
