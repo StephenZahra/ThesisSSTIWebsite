@@ -7,43 +7,47 @@ use App\Http\Controllers\StoredImmController;
 use App\Http\Controllers\BlindPosController;
 use App\Http\Controllers\BlindImmController;
 
+// Default entry point route which redirects to reflected SSTI page
+    Route::match(['get'], '/', [ReflectedController::class, 'reflectedssti'], function(Request $request){
+        return redirect()->route('reflectedssti');
+    });
 
-Route::match(['get'], '/', [ReflectedController::class, 'reflectedssti'], function(Request $request){
-    return redirect()->route('reflectedssti');
-});
 
 // Reflected SSTI Route (also the default route that is used as landing page)
-Route::match(['get'], 'reflectedssti', [ReflectedController::class, 'reflectedssti'], function (Request $request) {
-    
-})->name('reflectedssti');
+    Route::match(['get'], 'reflectedssti', [ReflectedController::class, 'reflectedssti'], function (Request $request) {
+        
+    })->name('reflectedssti');
 
-Route::match(['post'], 'reflected', [ReflectedController::class, 'reflect'], function (Request $request) {
-    return redirect()->route("reflectedssti")->with(["name"]);
-})->name('reflected');
+    Route::match(['post'], 'reflected', [ReflectedController::class, 'reflect'], function (Request $request) {
+        return redirect()->route("reflectedssti")->with(["name"]);
+    })->name('reflected');
 
 
 // Stored SSTI with Posterior Injection and Rendering Route
-Route::match(['get'], 'storedpos', [StoredPosController::class, 'storepos'], function (Request $request) {
-    return redirect->route("storedpos");
-})->name('storedpos');
-
-    // Route that saves Stored Pos to database
-    Route::match(['post'], 'store', [StoredPosController::class, 'store'], function(Request $request){
+    Route::match(['get'], 'storedpos', [StoredPosController::class, 'storepos'], function (Request $request) {
         return redirect->route("storedpos");
-    })->name('storeStoredPos');
+    })->name('storedpos');
 
-    // Route to view saved data using the above route
-    Route::match(['get'], 'comments', [StoredPosController::class, 'comments'], function(Request $request){
-        return redirect->route("comments");
-    })->name('comments');
+        // Route that saves Stored Pos to database
+        Route::match(['post'], 'store', [StoredPosController::class, 'store'], function(Request $request){
+            return redirect->route("storedpos");
+        })->name('storeStoredPos');
+
+        // Route to view saved data using the above route
+        Route::match(['get'], 'comments', [StoredPosController::class, 'comments'], function(Request $request){
+            return redirect->route("comments");
+        })->name('comments');
 
 
 
 // Stored SSTI with Immediate Injection and Rendering Route
-Route::match(['get', 'post'], 'storedimm', [StoredImmController::class, 'storeimm'], function (Request $request) {
-    return back()->with(["message"]);
-})->name('storedimm');
+    Route::match(['get'], 'storedimm', [StoredImmController::class, 'storeimm'], function (Request $request) {
+        //return back()->with(["message"]);
+    })->name('storedimm');
 
+    Route::match(['post'], 'send', [StoredImmController::class, 'send'], function (Request $request) {
+        return back()->with(["message"]);
+    })->name('send');
 
 
 // Blind SSTI with Posterior Injection and Rendering Route

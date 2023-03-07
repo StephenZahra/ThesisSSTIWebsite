@@ -12,7 +12,7 @@
     <h4>Stored Immediate Injection</h4>
 
     <body>
-        <form action='{{route('storedimm')}}' method='post'>
+        <form action='{{route('send')}}' method='post'>
             @csrf
             <label>Send us an Email:</label><br>
             <textarea type='text' name='message'></textarea><br><br>
