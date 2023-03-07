@@ -6,7 +6,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="{{route('reflected')}}">Reflected SSTI</a>
+        <a class="nav-link" href="{{route('reflectedssti')}}">Reflected SSTI</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{route('storedpos')}}">Stored SSTI (posterior)</a>

@@ -8,12 +8,18 @@ use App\Http\Controllers\BlindPosController;
 use App\Http\Controllers\BlindImmController;
 
 
+Route::match(['get'], '/', [ReflectedController::class, 'reflectedssti'], function(Request $request){
+    return redirect()->route('reflectedssti');
+});
 
 // Reflected SSTI Route (also the default route that is used as landing page)
-Route::match(['get', 'post'], '/', [ReflectedController::class, 'reflect'], function (Request $request) {
-    return back()->with(["name"]);
-})->name('reflected');
+Route::match(['get'], 'reflectedssti', [ReflectedController::class, 'reflectedssti'], function (Request $request) {
+    
+})->name('reflectedssti');
 
+Route::match(['post'], 'reflected', [ReflectedController::class, 'reflect'], function (Request $request) {
+    return redirect()->route("reflectedssti")->with(["name"]);
+})->name('reflected');
 
 
 // Stored SSTI with Posterior Injection and Rendering Route

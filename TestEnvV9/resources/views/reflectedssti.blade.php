@@ -12,11 +12,16 @@
     <h4>Reflected Injection</h4>
     
     <body>
-        <form action='/' method='post'>
+        <form action='{{route("reflected")}}' method='post'>
             @csrf
             <label>Name:</label>
             <input type='text' name='name'><br><br>
             <input type='submit' value='Submit'>
         </form>
+
+        @isset($message)
+            <br>
+            <p>{{$message}}</p>
+        @endisset
     </body>
 </html>
