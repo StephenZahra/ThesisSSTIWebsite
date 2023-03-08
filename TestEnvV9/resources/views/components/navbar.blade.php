@@ -20,6 +20,13 @@
       <li class="nav-item">
         <a class="nav-link" href="{{route('blindimm')}}">Blind SSTI (immediate)</a>
       </li>
+
+      @auth
+        <a class="nav-link btn btn-primary" href="{{route('signout')}}">Logout</a>
+      @else
+        <a class="nav-link btn btn-success" href="{{route('loginform')}}">Login</a>
+      @endauth
+
     </ul>
   </div>
 </nav>

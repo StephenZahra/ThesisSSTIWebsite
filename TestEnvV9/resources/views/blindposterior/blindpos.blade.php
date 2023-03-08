@@ -9,12 +9,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
 
-    <h4>Blind Immediate Injection</h4>
+    <h4>Blind Posterior Injection</h4>
 
     <body>
-        <form action='/' method='post'>
+        <form action='{{route("blindposStore")}}' method='post'>
             @csrf
-            <label>Tell us what you think:</label><br>
+            <label>What you write here will be logged:</label><br>
             <textarea type='text' name='message'></textarea><br><br>
             <input type='submit' value='Submit'>
         </form>

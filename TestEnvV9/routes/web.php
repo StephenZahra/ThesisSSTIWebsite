@@ -6,11 +6,13 @@ use App\Http\Controllers\StoredPosController;
 use App\Http\Controllers\StoredImmController;
 use App\Http\Controllers\BlindPosController;
 use App\Http\Controllers\BlindImmController;
+use App\Http\Controllers\Auth\AuthController;
 
 // Default entry point route which redirects to reflected SSTI page
     Route::match(['get'], '/', [ReflectedController::class, 'reflectedssti'], function(Request $request){
         return redirect()->route('reflectedssti');
     });
+
 
 
 // Reflected SSTI Route (also the default route that is used as landing page)
@@ -21,6 +23,7 @@ use App\Http\Controllers\BlindImmController;
     Route::match(['post'], 'reflected', [ReflectedController::class, 'reflect'], function (Request $request) {
         return redirect()->route("reflectedssti")->with(["name"]);
     })->name('reflected');
+
 
 
 // Stored SSTI with Posterior Injection and Rendering Route
@@ -42,7 +45,7 @@ use App\Http\Controllers\BlindImmController;
 
 // Stored SSTI with Immediate Injection and Rendering Route
     Route::match(['get'], 'storedimm', [StoredImmController::class, 'storeimm'], function (Request $request) {
-        //return back()->with(["message"]);
+        
     })->name('storedimm');
 
     Route::match(['post'], 'send', [StoredImmController::class, 'send'], function (Request $request) {
@@ -50,14 +53,45 @@ use App\Http\Controllers\BlindImmController;
     })->name('send');
 
 
-// Blind SSTI with Posterior Injection and Rendering Route
-Route::match(['get', 'post'], 'blindpos', [BlindPosController::class, 'blindpos'], function (Request $request) {
-    return back()->with(["name"]);
-})->name('blindpos');
+
+// Blind SSTI related routes
+
+    // Login Page
+    Route::match(['get'], 'loginform', [AuthController::class, 'loginform'], function (Request $request){
+
+    })->name('loginform');
+
+    // Login POST
+    Route::match(['post'], 'login', [AuthController::class, 'login'], function (Request $request){
+
+    })->name('login');
+
+    // Signout Page
+    Route::match(['get'], 'signout', [AuthController::class, 'signout'], function (Request $request){
+
+    })->name('signout');
+
+
+    // Blind SSTI with Posterior Injection and Rendering Routes
+    Route::match(['get'], 'blindpos', [BlindPosController::class, 'blindpos'], function (Request $request) {
+        
+    })->name('blindpos');
+
+    Route::match(['post'], 'blindposStore', [BlindPosController::class, 'blindposStore'], function (Request $request) {
+        
+    })->name('blindposStore');
 
 
 
-// Blind SSTI with Immediate Injection and Rendering Route
-Route::match(['get', 'post'], 'blindimm', [BlindImmController::class, 'blindimm'], function (Request $request) {
-    return back()->with(["name"]);
-})->name('blindimm');
+    // Blind SSTI with Immediate Injection and Rendering Routes
+    Route::match(['get'], 'blindimm', [BlindImmController::class, 'blindimm'], function (Request $request) {
+        
+    })->name('blindimm');
+
+    Route::match(['post'], 'blindimmSend', [BlindImmController::class, 'blindimmSend'], function (Request $request) {
+        
+    })->name('blindimmSend');
+
+//Auth::routes();
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
