@@ -10,12 +10,12 @@
     </head>
 
     <h4>Blind Posterior Injection</h4>
-
+    
     <body>
         <form action='{{route("blindposStore")}}' method='post'>
             @csrf
             <label>What you write here will be logged:</label><br>
-            <textarea type='text' name='message'></textarea><br><br>
+            <textarea type='text' name='message' style="resize:both"></textarea><br><br>
             <input type='submit' value='Submit'>
         </form>
     </body>

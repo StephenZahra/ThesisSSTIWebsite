@@ -12,8 +12,6 @@
     <h4>What people Think</h4>
 
     <body>
-        @foreach ($data as $comment)
-            <p>{{$comment->data}}</p>
-        @endforeach
+        <p>{{$data}}</p>
     </body>
 </html>

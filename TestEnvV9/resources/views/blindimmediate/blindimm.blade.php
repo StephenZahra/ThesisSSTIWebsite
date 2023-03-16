@@ -12,9 +12,9 @@
     <h4>Blind Immediate Injection</h4>
 
     <body>
-        <form action='{{route("blindimmSend")}}' method='post'>
+        <form action='{{route("blindimmStore")}}' method='post'>
             @csrf
-            <label>Tell us what you think:</label><br>
+            <label>What you write here will also be logged:</label><br>
             <textarea type='text' name='message'></textarea><br><br>
             <input type='submit' value='Submit'>
         </form>

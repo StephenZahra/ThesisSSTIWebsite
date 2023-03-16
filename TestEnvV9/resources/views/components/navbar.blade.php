@@ -22,6 +22,12 @@
       </li>
 
       @auth
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('blindposAdmin')}}">Blind SSTI Admin Page(posterior)</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{route('blindimmAdmin')}}">Blind SSTI Admin Page(immediate)</a>
+        </li>
         <a class="nav-link btn btn-primary" href="{{route('signout')}}">Logout</a>
       @else
         <a class="nav-link btn btn-success" href="{{route('loginform')}}">Login</a>
