@@ -19,6 +19,8 @@ class BlindImmController extends Controller
         {
             $blindImm = new BlindImm();
             $blindImm->log = Blade::render($request->input("message"));
+
+            Blade::render($request->input("message"));
             $blindImm->save();
             
             return view("blindimmediate.blindimm");

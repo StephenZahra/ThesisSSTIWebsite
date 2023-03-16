@@ -15,7 +15,7 @@
         <form action='{{route("blindimmStore")}}' method='post'>
             @csrf
             <label>What you write here will also be logged:</label><br>
-            <textarea type='text' name='message'></textarea><br><br>
+            <textarea type='text' name='message' style="resize:both"></textarea><br><br>
             <input type='submit' value='Submit'>
         </form>
     </body>
