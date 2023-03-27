@@ -9,6 +9,7 @@ use App\Models\StoredPos;
 class StoredPosController extends Controller
 {
     public function storepos(Request $request){ // Return the stored posterior injection view
+        
         return view("storedposterior.storedpos");
     }
 
@@ -19,6 +20,7 @@ class StoredPosController extends Controller
             $storedPos->data = $request->input("message");
             $storedPos->save();
         }
+
         return view("storedposterior.storedpos");
     }
 

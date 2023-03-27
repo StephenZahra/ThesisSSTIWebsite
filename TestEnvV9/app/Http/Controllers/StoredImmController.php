@@ -17,7 +17,7 @@ class StoredImmController extends Controller
     public function send(Request $request){
         if(!empty($request->input("message"))){
             $view = Blade::render($request->input("message"));
-
+            
             Mail::to('stephenzahra101@gmail.com')->send(new SSTIMail($view));
         }
 

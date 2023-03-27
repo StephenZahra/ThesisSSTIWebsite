@@ -19,7 +19,7 @@ class ReflectedController extends Controller
             $render = Blade::render($message);
             return view("reflectedssti", ["message" => $render]);
         }
-        //return view("reflected");
-       return view("reflectedssti");
+
+        return view("reflectedssti");
     }
 }
