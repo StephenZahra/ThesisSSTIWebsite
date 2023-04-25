@@ -7,6 +7,7 @@ use App\Http\Controllers\StoredImmController;
 use App\Http\Controllers\BlindPosController;
 use App\Http\Controllers\BlindImmController;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\AuthStoredPosController;
 
 // Default entry point route which redirects to reflected SSTI page
     Route::match(['get'], '/', [ReflectedController::class, 'reflectedssti'], function(Request $request){
@@ -100,3 +101,13 @@ use App\Http\Controllers\Auth\AuthController;
     Route::match(['get'], 'blindimmAdmin', [BlindImmController::class, 'blindimmAdmin'], function (Request $request) {
         
     })->name('blindimmAdmin');
+
+
+    // Authenticated Stored Posterior Injection and Rendering SSTI
+    Route::match(['get'], 'authstoredpos', [AuthStoredPosController::class, 'authstoredpos'], function (Request $request) {
+        
+    })->name('authstoredpos');
+
+    Route::match(['post'], 'authstoredposStore', [AuthStoredPosController::class, 'authstoredposStore'], function (Request $request) {
+        
+    })->name('authstoredposStore');

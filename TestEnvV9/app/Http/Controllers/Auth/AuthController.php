@@ -21,7 +21,7 @@ class AuthController extends Controller
         $request->validate(['email' => ['required', 'email'], 'password' => ['required']]);
         
         $details = $request->only('email', 'password');
-        $user = User::where('email', $details["email"])->first();
+        $user = User::where('email', $details["email"])->get()->first();
         
         //dd($user["password"], Hash::make($details["password"]));
 

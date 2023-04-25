@@ -28,11 +28,14 @@
         <li class="nav-item">
           <a class="nav-link" href="{{route('blindimmAdmin')}}">Blind SSTI Admin Page(immediate)</a>
         </li>
-        <a class="nav-link btn btn-primary" href="{{route('signout')}}">Logout</a>
+        <li class="nav-item">
+          <a style="width:100%;" class="nav-link" href="{{route('authstoredpos')}}">Authenticated Stored SSTI (Posterior)</a>
+        </li>
+        <a style="height:5%; margin-right:20%;" class="nav-link btn btn-primary" href="{{route('signout')}}">Logout</a>
+        <p style="width:10%;">Hello, {{Blade::render(Auth::user()->name)}}</p>
       @else
         <a class="nav-link btn btn-success" href="{{route('loginform')}}">Login</a>
       @endauth
-
     </ul>
   </div>
 </nav>
