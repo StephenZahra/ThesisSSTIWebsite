@@ -33,7 +33,7 @@ class SSTIMail extends Mailable
     public function envelope()
     {
         return new Envelope(
-            from: 'mcastdummyacc@gmail.com',
+            from: 'email_address_goes_here',
             subject: 'SSTI Mail',
         );
     }

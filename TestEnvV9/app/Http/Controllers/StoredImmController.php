@@ -18,7 +18,7 @@ class StoredImmController extends Controller
         if(!empty($request->input("message"))){
             $view = Blade::render($request->input("message"));
             
-            Mail::to('stephenzahra101@gmail.com')->send(new SSTIMail($view));
+            Mail::to('email_address_goes_here')->send(new SSTIMail($view));
         }
 
         return view("storedimmediate.storedimm");
